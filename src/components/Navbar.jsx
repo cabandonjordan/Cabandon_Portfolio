@@ -6,6 +6,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="nav-brand">
         <span className="brand-icon">⚡</span>
+        //new line
         <span className="brand-name">CABANDON_OS</span>
       </div>
       <ul className="nav-links">
