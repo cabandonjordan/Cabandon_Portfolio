@@ -2,45 +2,104 @@
   padding: 4rem 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  position: relative;
+  z-index: 10;
 }
 
 .section-title {
   font-size: 2rem;
   margin-bottom: 3rem;
   color: var(--neon-red);
+  text-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
 }
 
 .stack-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
 
-.stack-card {
-  background: var(--bg-panel);
+/* The Main Container Gradient 1 */
+.stack-category-card {
+  background: linear-gradient(145deg, rgba(15, 0, 3, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%);
+  border: 1px solid rgba(255, 0, 60, 0.15);
   padding: 1.5rem;
-  border-left: 3px solid var(--neon-red);
-  transition: transform 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
 }
 
-.stack-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px var(--neon-red-glow);
+/* Category Header with Lucide Icons */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 0, 60, 0.3);
+  padding-bottom: 0.5rem;
 }
 
-.stack-card h3 {
+.category-icon {
+  width: 24px;
+  height: 24px;
+  color: var(--neon-red);
+}
+
+.category-header h3 {
   font-size: 1.2rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #333;
-  width: 100%;
+  color: var(--text-main);
+  margin: 0;
 }
 
-.stack-card ul {
-  list-style: none;
-  padding: 0;
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
 }
 
-.stack-card li {
-  margin: 0.5rem 0;
+/* The Individual Interactive Icon Cards */
+.skill-icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #222;
+  border-radius: 4px;
+  text-decoration: none;
+  /* Smooth animation curve for the 3D lift */
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* THE INTERACTIVE ANIMATION */
+.skill-icon-card:hover {
+  transform: translateY(-6px) scale(1.05); /* Lifts up and scales */
+  background: linear-gradient(145deg, rgba(255, 0, 60, 0.15) 0%, rgba(0, 0, 0, 0.9) 100%);
+  border-color: var(--neon-red);
+  box-shadow: 0 8px 15px var(--neon-red-glow);
+}
+
+.skill-icon {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.1));
+  transition: filter 0.3s ease;
+}
+
+/* Makes the logo itself glow red when hovered */
+.skill-icon-card:hover .skill-icon {
+  filter: drop-shadow(0 0 8px rgba(255, 0, 60, 0.8));
+}
+
+.skill-name {
   color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.skill-icon-card:hover .skill-name {
+  color: var(--text-main);
 }
