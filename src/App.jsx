@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import SystemInit from './components/SystemInit';
 import AboutMe from './components/AboutMe';
 import TechStack from './components/TechStack';
+import Beams from './components/Beams';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css'; 
@@ -11,16 +12,15 @@ function App() {
   // Initialize smooth scroll animations
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation lasts 1 second
-      once: false,    // Animates every time you scroll up/down
+      duration: 1000, 
+      once: false,    
       mirror: true,
     });
   }, []);
 
   return (
     <div className="main-viewport">
-      <div className="css-grid-bg"></div>
-      <div className="css-vignette"></div>
+      <Beams lightColor="#ff003c" />
       
       <div className="content-layer">
         <Navbar />

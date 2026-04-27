@@ -16,8 +16,9 @@ const SystemInit = () => {
           <h1 className="glitch-text">JORDAN A. CABANDON</h1>
           <h2 className="role-text">BSCpE // BACKEND ENGINEER</h2>
           <p className="bio-text">
-            Architecting intelligent systems, embedded hardware, and scalable backend solutions. 
-            Bridging the gap between raw data and seamless user execution.
+            Computer Engineering student compiling raw curiosity into functional code. 
+            Exploring the intersection of software and hardware, debugging complex challenges, 
+            and engineering tomorrow's solutions one line at a time.
           </p>
           <div className="action-buttons">
             <a href="#projects" className="btn-primary">DEPLOY_PROJECTS</a>
