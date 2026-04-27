@@ -1,0 +1,111 @@
+.hero-section {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.terminal-container {
+  background-color: var(--bg-panel);
+  border: 1px solid #333;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 10px 10px 0px rgba(255, 0, 60, 0.1);
+}
+
+.terminal-header {
+  background-color: #222;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+.dot.red { background-color: #ff5f56; }
+.dot.yellow { background-color: #ffbd2e; }
+.dot.green { background-color: #27c93f; }
+
+.terminal-title {
+  color: #888;
+  margin-left: 15px;
+  font-size: 0.9rem;
+}
+
+.terminal-body {
+  padding: 2rem;
+}
+
+.prompt {
+  color: var(--neon-red);
+  margin-right: 10px;
+}
+
+.command-line {
+  color: #aaa;
+  margin-bottom: 2rem;
+}
+
+.glitch-text {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--text-main);
+  text-shadow: 2px 2px 0px var(--neon-red);
+  border: none;
+}
+
+.role-text {
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  border: none;
+}
+
+.bio-text {
+  line-height: 1.6;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn-primary, .btn-secondary {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: var(--neon-red);
+  border: 1px solid var(--neon-red);
+}
+
+.btn-primary:hover {
+  background-color: var(--neon-red);
+  color: var(--bg-dark);
+  box-shadow: 0 0 15px var(--neon-red-glow);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--text-muted);
+}
+
+.btn-secondary:hover {
+  border-color: var(--text-main);
+  color: var(--text-main);
+}

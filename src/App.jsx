@@ -1,12 +1,16 @@
-import './App.css'
+import React from 'react';
+import Navbar from './components/Navbar';
+import SystemInit from './components/SystemInit';
+import './App.css';
 
 function App() {
   return (
     <div className="app-container">
-      <h1>SYSTEM ONLINE: JORDAN A. CABANDON</h1>
-      <p>Awaiting commands...</p>
+      <Navbar />
+      <SystemInit />
+      {/* Future sections will go here */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
