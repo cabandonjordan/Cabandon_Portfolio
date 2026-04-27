@@ -26,6 +26,7 @@ body {
 .content-layer {
   position: relative;
   z-index: 10; /* Keeps your text and cards on top */
+  width: 100%;
 }
 
 /* --- 3. THE ANIMATED GRID BACKGROUND --- */

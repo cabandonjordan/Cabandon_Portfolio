@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Database, Wrench, Shield, Terminal, Target, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Cpu, Database, Wrench, Shield, Terminal, Target, Mail, Link, Phone } from 'lucide-react';
 import '../styles/AboutMe.css';
 
 const AboutMe = () => {
@@ -115,9 +115,9 @@ const AboutMe = () => {
             <div className="comms-footer-console">
               <p className="sub-label"><Terminal size={16} /> OPEN_COMM_CHANNELS</p>
               <div className="social-links-console">
-                <a href="#" className="social-btn-console"><Facebook size={20} /></a>
-                <a href="#" className="social-btn-console"><Instagram size={20} /></a>
-                <a href="#" className="social-btn-console"><Twitter size={20} /></a>
+                <a href="#" className="social-btn-console"><Mail size={20} /></a>
+                <a href="#" className="social-btn-console"><Link size={20} /></a>
+                <a href="#" className="social-btn-console"><Phone size={20} /></a>
               </div>
             </div>
           </div>
