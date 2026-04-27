@@ -1,0 +1,300 @@
+.about-section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* --- OS WINDOW FRAME --- */
+.os-window-frame {
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 0, 60, 0.1);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.os-window-header {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #333;
+}
+
+.window-dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 15px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #444;
+  border-radius: 50%;
+}
+
+.red-dot {
+  background: var(--neon-red);
+  box-shadow: 0 0 8px var(--neon-red-glow);
+}
+
+.window-title {
+  color: #666;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* --- BODY & PANELS --- */
+.os-window-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.panel {
+  border: 1px solid rgba(255, 0, 60, 0.2);
+  background: rgba(5, 5, 5, 0.6);
+  padding: 2rem;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* --- LEFT PANEL: TYPOGRAPHY & GLITCH --- */
+.label {
+  color: var(--neon-red);
+  font-weight: bold;
+}
+
+.sub-label {
+  color: #888;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.data-group {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1rem;
+}
+
+.data-row {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+}
+
+.objective-list {
+  list-style: none;
+  padding: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.objective-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 1rem;
+}
+
+.objective-list li::before {
+  content: '>';
+  position: absolute;
+  left: 0;
+  color: var(--neon-red);
+}
+
+.objective-list strong {
+  color: var(--text-main);
+}
+
+/* REACT-BITS INSPIRED GLITCH TEXT */
+.glitch-title {
+  font-size: 1.3rem;
+  color: var(--neon-red);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.glitch-title::before, .glitch-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.glitch-title::before {
+  left: 2px;
+  text-shadow: -1px 0 #00ffcc;
+  animation: glitch-anim-1 2s infinite linear alternate-reverse;
+}
+
+.glitch-title::after {
+  left: -2px;
+  text-shadow: -1px 0 var(--neon-red);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip: rect(20px, 9999px, 85px, 0); }
+  20% { clip: rect(92px, 9999px, 11px, 0); }
+  40% { clip: rect(43px, 9999px, 5px, 0); }
+  60% { clip: rect(10px, 9999px, 40px, 0); }
+  80% { clip: rect(70px, 9999px, 80px, 0); }
+  100% { clip: rect(30px, 9999px, 15px, 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip: rect(15px, 9999px, 90px, 0); }
+  20% { clip: rect(70px, 9999px, 20px, 0); }
+  40% { clip: rect(50px, 9999px, 45px, 0); }
+  60% { clip: rect(80px, 9999px, 10px, 0); }
+  80% { clip: rect(20px, 9999px, 70px, 0); }
+  100% { clip: rect(55px, 9999px, 25px, 0); }
+}
+
+/* REACT-BITS INSPIRED SHINY BUTTON */
+.cyber-button {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--neon-red);
+  padding: 12px 24px;
+  font-family: inherit;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 10px rgba(255, 0, 60, 0.1);
+}
+
+.cyber-button:hover {
+  background: rgba(255, 0, 60, 0.1);
+  box-shadow: 0 0 15px var(--neon-red-glow), inset 0 0 20px rgba(255, 0, 60, 0.3);
+}
+
+.shiny-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+
+.shiny-sweep:hover::after {
+  left: 150%;
+  transition: 0.7s ease-in-out;
+}
+
+/* --- RIGHT PANEL: RADAR & SHIELD --- */
+.right-panel {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.radar-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.radar-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 0, 60, 0.3);
+}
+
+.outer-ring { width: 100%; height: 100%; border-style: dashed; animation: spin-slow 20s linear infinite; }
+.middle-ring { width: 70%; height: 70%; border: 2px solid rgba(255, 0, 60, 0.5); }
+.inner-ring {
+  width: 40%;
+  height: 40%;
+  background: rgba(255, 0, 60, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neon-red);
+  box-shadow: 0 0 20px var(--neon-red-glow);
+}
+
+.radar-scanner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(255, 0, 60, 0.4) 100%);
+  animation: radar-scan 4s linear infinite;
+}
+
+.radar-text {
+  position: absolute;
+  bottom: -40px;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  text-shadow: 0 0 10px var(--neon-red);
+}
+
+@keyframes spin-slow { 100% { transform: rotate(360deg); } }
+@keyframes radar-scan { 100% { transform: rotate(360deg); } }
+
+/* Comms Footer */
+.comms-footer {
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-btn {
+  color: var(--text-muted);
+  border: 1px solid #333;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-btn:hover {
+  color: var(--neon-red);
+  border-color: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red-glow);
+  transform: translateY(-3px);
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 800px) {
+  .os-window-body {
+    grid-template-columns: 1fr;
+  }
+}
