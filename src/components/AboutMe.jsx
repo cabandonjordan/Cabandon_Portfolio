@@ -3,6 +3,11 @@ import { Cpu, Database, Wrench, Shield, Terminal, Target, Mail, Link, Phone } fr
 import Stack from './Stack';
 import '../styles/AboutMe.css';
 
+// IMPORT IMAGES HERE so Vercel bundles them correctly
+import about1 from '../assets/about-1.jpg';
+import about2 from '../assets/about-2.jpg';
+import about3 from '../assets/about-3.jpg';
+
 const AboutMe = () => {
   const ABOUT_MODULES = [
     {
@@ -17,8 +22,7 @@ const AboutMe = () => {
             <span className="typing-text">System initialization... complete. Subject online.</span>
           </div>
         </>
-      ),
-      image: "/src/assets/about-1.jpg", 
+      )
     },
     {
       title: "Operational Objectives",
@@ -29,8 +33,7 @@ const AboutMe = () => {
           <li>Unyielding optimism. Wired to <strong>face difficult challenges</strong> head-on.</li>
           <li><span className="label">GOAL:</span> Secure fully <strong>FULLSTACK_DEVELOPER</strong> status.</li>
         </ul>
-      ),
-      image: "/src/assets/about-2.jpg", 
+      )
     },
     {
       title: "Core Traits & Environment",
@@ -51,8 +54,7 @@ const AboutMe = () => {
             <Cpu className="data-icon" size={16} /> <span>Git // VS Code // GitHub: ACTIVE</span>
           </div>
         </>
-      ),
-      image: "/src/assets/about-3.jpg", 
+      )
     }
   ];
 
@@ -101,21 +103,21 @@ const AboutMe = () => {
               cards={[
                 (
                   <img
-                    src="/src/assets/about-1.jpg"
+                    src={about1}
                     alt="portfolio-1"
                     className="card-image"
                   />
                 ),
                 (
                   <img
-                    src="/src/assets/about-2.jpg"
+                    src={about2}
                     alt="portfolio-2"
                     className="card-image"
                   />
                 ),
                 (
                   <img
-                    src="/src/assets/about-3.jpg"
+                    src={about3}
                     alt="portfolio-3"
                     className="card-image"
                   />
