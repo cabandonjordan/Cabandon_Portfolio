@@ -1,5 +1,6 @@
 import React from 'react';
 import { Cpu, Database, Wrench, Shield, Terminal, Target, Mail, Link, Phone } from 'lucide-react';
+import Stack from './Stack';
 import '../styles/AboutMe.css';
 
 const AboutMe = () => {
@@ -81,11 +82,6 @@ const AboutMe = () => {
                     {module.icon}
                     <h3>{module.title}</h3>
                   </div>
-                  {module.image && (
-                    <div className="about-card-image-wrapper">
-                      <img src={module.image} alt={module.title} className="about-card-image" />
-                    </div>
-                  )}
                   <div className="about-card-content">
                     {module.content}
                   </div>
@@ -98,19 +94,37 @@ const AboutMe = () => {
             </button>
           </div>
 
-          {/* RIGHT PANEL: Visual Radar & Comms */}
+          {/* RIGHT PANEL: Stack Component with Images */}
           <div className="panel-console right-panel-console">
-            <div className="visual-elements-container">
-              <div className="radar-container-console">
-                <div className="radar-ring-console outer-ring-console"></div>
-                <div className="radar-ring-console middle-ring-console"></div>
-                <div className="radar-ring-console inner-ring-console">
-                  <Shield className="core-icon-console" size={48} />
-                </div>
-                <div className="radar-scanner-console"></div>
-                <h3 className="radar-text-console glowing-text">3RD_YEAR_UNIT</h3>
-              </div>
-            </div>
+            <h3 className="gallery-title">MEDIA_ARCHIVE</h3>
+            <Stack 
+              cards={[
+                (
+                  <img
+                    src="/src/assets/about-1.jpg"
+                    alt="portfolio-1"
+                    className="card-image"
+                  />
+                ),
+                (
+                  <img
+                    src="/src/assets/about-2.jpg"
+                    alt="portfolio-2"
+                    className="card-image"
+                  />
+                ),
+                (
+                  <img
+                    src="/src/assets/about-3.jpg"
+                    alt="portfolio-3"
+                    className="card-image"
+                  />
+                )
+              ]}
+              randomRotation={true}
+              sensitivity={150}
+              sendToBackOnClick={true}
+            />
 
             <div className="comms-footer-console">
               <p className="sub-label"><Terminal size={16} /> OPEN_COMM_CHANNELS</p>

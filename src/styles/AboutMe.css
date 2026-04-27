@@ -455,6 +455,26 @@
   transform: translateY(-5px) scale(1.1);
 }
 
+/* Gallery Title */
+.gallery-title {
+  font-size: 1rem;
+  color: var(--neon-red);
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  margin-top: 0;
+  position: relative;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 0, 60, 0.3);
+}
+
+/* Folder Container Styling */
+.right-panel-console .folder {
+  margin: 2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .os-window-body {
