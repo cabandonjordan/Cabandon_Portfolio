@@ -11,7 +11,7 @@ function App() {
       <div className="css-grid-bg"></div>
       <div className="css-vignette"></div>
       
-      {/* Portfolio Content */}
+      {/* Portfolio Contents */}
       <div className="content-layer">
         <Navbar />
         <SystemInit />

@@ -3,7 +3,7 @@ import { Cpu, Layout, Database, Wrench } from 'lucide-react';
 import '../styles/TechStack.css';
 
 const TechStack = () => {
-  // Custom OS-themed titles, avoiding generic picture reference names
+  // Custom OS-themed titles, avoiding generic picture reference names: new
   const SYSTEM_MODULES = [
     {
       title: "Logic Processing",

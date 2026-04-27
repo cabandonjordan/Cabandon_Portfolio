@@ -60,7 +60,7 @@ body {
   background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 5, 0.95) 100%);
 }
 
-/* --- 5. THE ANIMATION MATH --- */
+/* --- 5 THE ANIMATION MATH --- */
 @keyframes slide-grid {
   0% {
     transform: translate(0, 0);
