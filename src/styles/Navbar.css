@@ -12,11 +12,11 @@
 }
 
 .modern-navbar.scrolled {
-  background: rgba(5, 5, 5, 0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 0, 2, 0.4);
+  backdrop-filter: blur(12px);
   padding: 1rem 5%;
-  border-bottom: 1px solid rgba(255, 0, 60, 0.2);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  border-bottom: 1px solid rgba(255, 0, 60, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
 }
 
 .nav-brand {
