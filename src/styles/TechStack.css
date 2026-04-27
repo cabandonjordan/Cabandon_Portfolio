@@ -1,0 +1,46 @@
+.stack-section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: var(--neon-red);
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.stack-card {
+  background: var(--bg-panel);
+  padding: 1.5rem;
+  border-left: 3px solid var(--neon-red);
+  transition: transform 0.3s ease;
+}
+
+.stack-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px var(--neon-red-glow);
+}
+
+.stack-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #333;
+  width: 100%;
+}
+
+.stack-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.stack-card li {
+  margin: 0.5rem 0;
+  color: var(--text-muted);
+}
