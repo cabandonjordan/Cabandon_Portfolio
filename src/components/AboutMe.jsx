@@ -1,13 +1,63 @@
 import React from 'react';
-import { Facebook, Instagram, Twitter, Shield, Terminal, Crosshair } from 'lucide-react';
+import { Cpu, Database, Wrench, Shield, Terminal, Target, Facebook, Instagram, Twitter } from 'lucide-react';
 import '../styles/AboutMe.css';
 
 const AboutMe = () => {
+  const ABOUT_MODULES = [
+    {
+      title: "Subject Profile / Identification",
+      icon: <Cpu className="category-icon text-[#ff003c]" />,
+      content: (
+        <>
+          <p className="data-row"><span className="label">SUBJECT_NAME:</span> JORDAN A. CABANDON</p>
+          <p className="data-row"><span className="label">STATUS:</span> 3RD YEAR UNIT (CIT-U) // COMP_ENG</p>
+          <div className="typing-animation-container">
+            <span className="status-label">STATUS_UPDATE: </span>
+            <span className="typing-text">System initialization... complete. Subject online.</span>
+          </div>
+        </>
+      ),
+      image: "/src/assets/about-1.jpg", 
+    },
+    {
+      title: "Operational Objectives",
+      icon: <Target className="category-icon text-[#ff003c]" />,
+      content: (
+        <ul className="objective-list">
+          <li>Architecting constructs built with <strong>great effort & good quality</strong>.</li>
+          <li>Unyielding optimism. Wired to <strong>face difficult challenges</strong> head-on.</li>
+          <li><span className="label">GOAL:</span> Secure fully <strong>FULLSTACK_DEVELOPER</strong> status.</li>
+        </ul>
+      ),
+      image: "/src/assets/about-2.jpg", 
+    },
+    {
+      title: "Core Traits & Environment",
+      icon: <Shield className="category-icon text-[#ff003c]" />,
+      content: (
+        <>
+          <p className="data-row"><span className="label">DESIGNATION:</span> A7-JAC_CABANDON_OS</p>
+          <p className="description-text">
+            I am an optimistic person that would greatly be happy to face more difficult challenges since I strive to become a good developer where I would be able to build anything.
+          </p>
+          <div className="icon-data-block">
+            <Database className="data-icon" size={16} /> <span>Pinecone: ACTIVE</span>
+          </div>
+          <div className="icon-data-block">
+            <Wrench className="data-icon" size={16} /> <span>Gemini AI // TensorFlow: ACTIVE</span>
+          </div>
+          <div className="icon-data-block">
+            <Cpu className="data-icon" size={16} /> <span>Git // VS Code // GitHub: ACTIVE</span>
+          </div>
+        </>
+      ),
+      image: "/src/assets/about-3.jpg", 
+    }
+  ];
+
   return (
     <section className="about-section" id="about">
-      
-      {/* Outer Window Container */}
-      <div className="os-window-frame">
+      <div className="os-console-panel">
         <div className="os-window-header">
           <div className="window-dots">
             <span className="dot"></span>
@@ -18,55 +68,59 @@ const AboutMe = () => {
         </div>
 
         <div className="os-window-body">
-          
-          {/* LEFT PANEL: Data & Objectives */}
-          <div className="panel left-panel">
-            <h2 className="glitch-title" data-text="SYSTEM_PROFILE // SUBJECT">
+          {/* LEFT PANEL: Stacked Interactive Cards */}
+          <div className="panel-console left-panel-console">
+            <h2 className="glitch-title-console" data-text="SYSTEM_PROFILE // SUBJECT">
               SYSTEM_PROFILE // SUBJECT
             </h2>
             
-            <div className="data-group">
-              <p className="data-row"><span className="label">IDENTIFICATION:</span> JORDAN A. CABANDON</p>
-              <p className="data-row"><span className="label">STATUS:</span> 3RD YEAR UNIT (CIT-U) // COMP_ENG</p>
+            <div className="about-cards-grid">
+              {ABOUT_MODULES.map((module, index) => (
+                <div key={index} className="about-card-console">
+                  <div className="category-header-about">
+                    {module.icon}
+                    <h3>{module.title}</h3>
+                  </div>
+                  {module.image && (
+                    <div className="about-card-image-wrapper">
+                      <img src={module.image} alt={module.title} className="about-card-image" />
+                    </div>
+                  )}
+                  <div className="about-card-content">
+                    {module.content}
+                  </div>
+                </div>
+              ))}
             </div>
 
-            <div className="objectives-group">
-              <h3 className="sub-label"><Terminal size={16} /> OPERATIONAL_OBJECTIVES:</h3>
-              <ul className="objective-list">
-                <li>Architecting constructs built with <strong>great effort & good quality</strong>.</li>
-                <li>Unyielding optimism. Wired to <strong>face difficult challenges</strong> head-on.</li>
-                <li><span className="label">GOAL:</span> Secure fully <strong>FULLSTACK_DEVELOPER</strong> status.</li>
-              </ul>
-            </div>
-
-            {/* New Shiny Cyber Button (No Brackets) */}
             <button className="cyber-button shiny-sweep">
               INITIALIZE_LOG
             </button>
           </div>
 
           {/* RIGHT PANEL: Visual Radar & Comms */}
-          <div className="panel right-panel">
-            <div className="radar-container">
-              <div className="radar-ring outer-ring"></div>
-              <div className="radar-ring middle-ring"></div>
-              <div className="radar-ring inner-ring">
-                <Shield className="core-icon" size={48} />
+          <div className="panel-console right-panel-console">
+            <div className="visual-elements-container">
+              <div className="radar-container-console">
+                <div className="radar-ring-console outer-ring-console"></div>
+                <div className="radar-ring-console middle-ring-console"></div>
+                <div className="radar-ring-console inner-ring-console">
+                  <Shield className="core-icon-console" size={48} />
+                </div>
+                <div className="radar-scanner-console"></div>
+                <h3 className="radar-text-console glowing-text">3RD_YEAR_UNIT</h3>
               </div>
-              <div className="radar-scanner"></div>
-              <h3 className="radar-text glowing-text">3RD_YEAR_UNIT</h3>
             </div>
 
-            <div className="comms-footer">
-              <p className="sub-label"><Crosshair size={14} /> OPEN_COMM_CHANNELS</p>
-              <div className="social-links">
-                <a href="#" className="social-btn"><Facebook size={20} /></a>
-                <a href="#" className="social-btn"><Instagram size={20} /></a>
-                <a href="#" className="social-btn"><Twitter size={20} /></a>
+            <div className="comms-footer-console">
+              <p className="sub-label"><Terminal size={16} /> OPEN_COMM_CHANNELS</p>
+              <div className="social-links-console">
+                <a href="#" className="social-btn-console"><Facebook size={20} /></a>
+                <a href="#" className="social-btn-console"><Instagram size={20} /></a>
+                <a href="#" className="social-btn-console"><Twitter size={20} /></a>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

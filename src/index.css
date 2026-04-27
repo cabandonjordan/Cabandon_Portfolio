@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 :root {
   --bg-dark: #0a0a0a;
@@ -13,19 +13,19 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth; /* Native smooth scrolling for anchor links */
+}
+
 body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-dark);
   color: var(--text-main);
-  font-family: 'Share Tech Mono', monospace;
+  font-family: 'Poppins', sans-serif; /* New Sleek Font */
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3 {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border-bottom: 1px solid var(--neon-red);
-  display: inline-block;
-  padding-bottom: 5px;
+  letter-spacing: 1px;
 }
