@@ -20,7 +20,7 @@ body {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden; /* Stops horizontal scrolling */
+  overflow-x: hidden; /* Stops horizontal scrolling on mobile */
 }
 
 .content-layer {
@@ -69,5 +69,73 @@ body {
   100% {
     /* Moves exactly one grid square (50px) to make the loop invisible */
     transform: translate(-50px, -50px); 
+  }
+}
+
+/* --- 6. MOBILE RESPONSIVENESS (SMARTPHONES & TABLETS) --- */
+@media screen and (max-width: 768px) {
+  
+  /* Global Padding Adjustments */
+  section, .about-section, .projects-section {
+    padding: 3rem 1rem !important;
+  }
+
+  /* Fix OS Console Panels (About Me) */
+  .os-window-body {
+    flex-direction: column !important;
+  }
+
+  .panel-console.left-panel-console, 
+  .panel-console.right-panel-console {
+    width: 100% !important;
+    min-width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid #1a1a1a;
+  }
+
+  .panel-console.right-panel-console {
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  /* Fix Projects Grid for Mobile */
+  .projects-grid {
+    grid-template-columns: 1fr !important; /* Stack project cards vertically */
+    gap: 1.5rem !important;
+  }
+
+  /* Adjust Fonts */
+  h1, h2, .glitch-title, .glitch-title-console {
+    font-size: 1.8rem !important;
+  }
+
+  /* Fix Tech Stack Grid */
+  .tech-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Navbar Adjustments */
+  .navbar {
+    padding: 1rem !important;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* For extremely small screens (older phones) */
+@media screen and (max-width: 380px) {
+  .project-tech-list li {
+    font-size: 0.7rem; 
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .glitch-title {
+    font-size: 1.4rem !important;
   }
 }
