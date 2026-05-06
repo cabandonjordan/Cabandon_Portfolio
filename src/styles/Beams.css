@@ -1,9 +1,9 @@
 .beams-container {
   position: fixed !important;
-  top: 0;
-  left: 0;
+  top: 0 !important;
+  left: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
-  z-index: 0;
-  pointer-events: none; /* Allows user to interact with the site above the background */
+  z-index: 0 !important;
+  pointer-events: none !important;
 }
