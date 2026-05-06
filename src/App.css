@@ -2,9 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 :root {
-  --bg-dark: #050505; /* Pure Black */
-  --text-main: #ffffff; /* White text */
-  --neon-red: #ff003c; /* Robotic Red */
+  --bg-dark: #050505;
+  --text-main: #ffffff;
+  --neon-red: #ff003c;
+}
+
+html {
+  background-color: var(--bg-dark);
+  scroll-behavior: smooth;
 }
 
 body {
@@ -15,17 +20,24 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
+#root {
+  background-color: var(--bg-dark);
+  width: 100%;
+  min-height: 100vh;
+}
+
 /* --- 2. LAYOUT CONTROL --- */
 .main-viewport {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden; /* Stops horizontal scrolling on mobile */
+  overflow-x: hidden;
+  background-color: var(--bg-dark);
 }
 
 .content-layer {
   position: relative;
-  z-index: 10; /* Keeps your text and cards on top */
+  z-index: 100;
   width: 100%;
 }
 
@@ -34,16 +46,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 200vw; 
+  width: 200vw;
   height: 200vh;
   z-index: 0;
-  
   background-size: 50px 50px;
-  /* CHANGED: Increased the opacity from 0.08 to 0.25 so the red pops clearly */
   background-image: 
     linear-gradient(to right, rgba(255, 0, 60, 0.25) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 0, 60, 0.25) 1px, transparent 1px);
-  
   animation: slide-grid 20s linear infinite;
 }
 
@@ -55,20 +64,17 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 1;
-  pointer-events: none; 
-  
-  /* CHANGED: Pushed the black edge further out so more of the grid stays visible */
+  pointer-events: none;
   background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 5, 0.95) 100%);
 }
 
-/* --- 5 THE ANIMATION MATH --- */
+/* --- 5. THE ANIMATION MATH --- */
 @keyframes slide-grid {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    /* Moves exactly one grid square (50px) to make the loop invisible */
-    transform: translate(-50px, -50px); 
+    transform: translate(-50px, -50px);
   }
 }
 
