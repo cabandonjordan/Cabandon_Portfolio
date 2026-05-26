@@ -17,11 +17,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 4rem;
-  max-width: 1200px;
+  max-width: 1300px;
   width: 100%;
-  margin: -5rem auto 4rem; /* Added negative top margin to shift it higher */
+  margin: -5rem auto 0;
   position: relative;
   z-index: 10;
+  padding: 0 2rem;
 }
 
 .hero-left {
@@ -39,8 +40,8 @@
 
 /* --- IMAGE STYLES --- */
 .profile-image-placeholder {
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   background-color: #111111; /* Dark background */
   border-radius: 50%; /* Circle shape */
   display: flex;
@@ -48,8 +49,9 @@
   align-items: flex-end; /* Aligns the image to the bottom of the circle */
   overflow: hidden; /* Clips anything outside the circle */
   position: relative;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 60px rgba(255, 0, 60, 0.15), inset 0 0 40px rgba(255, 0, 60, 0.05);
   animation: fadeUp 1s ease-out 0.2s both, float 6s ease-in-out infinite;
+  border: 2px solid rgba(255, 0, 60, 0.1);
 }
 
 .profile-image {
@@ -232,6 +234,30 @@
 }
 
 /* --- MOBILE RESPONSIVENESS (CONSOLIDATED & FIXED) --- */
+@media screen and (max-width: 1024px) {
+  .hero-container {
+    gap: 2rem;
+  }
+
+  .hero-name {
+    font-size: 3.2rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+  }
+
+  .profile-image-placeholder {
+    width: 350px;
+    height: 350px;
+  }
+
+  .stats-container {
+    gap: 2rem;
+    margin: 3rem auto 0;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero-section {
     padding: 3rem 1.5rem 2rem 1.5rem;
