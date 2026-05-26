@@ -2,237 +2,184 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import '../styles/Projects.css';
 
+// GitHub icon SVG
+const GithubIcon = () => (
+  <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+  </svg>
+);
+
 const projectsList = [
   {
     id: 1,
-    title: 'Sentry',
-    type: 'BROWSER EXTENSION',
-    date: 'PUBLISHED 5 MONTHS AGO',
-    description: 'A collaborative team project developing a family safety browser extension. My contributions focused on frontend development and Firebase database integration.',
-    techStack: [],
+    title: 'RoboQuest',
+    type: '2D Game App',
+    tags: ['Game Development', 'Physics Engine', 'JavaScript'],
+    description: 'A dynamic 2D platformer game featuring intelligent enemy AI, physics-based mechanics, and progressive level design. Developed with custom collision detection and particle effects systems for immersive gameplay.',
+    techStack: ['JavaScript', 'Canvas API', 'Physics Engine'],
     link: '#', 
-    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800'
+    caseStudyLink: '#',
+    image: 'https://images.unsplash.com/photo-1556742212-5b321f3c261d?auto=format&fit=crop&q=80&w=1200&h=600'
   },
   {
     id: 2,
-    title: 'RoboQuest',
-    type: 'REACT MOBILE APP',
-    date: 'PUBLISHED 3 MONTHS AGO',
-    description: 'A team-built educational mobile RPG. I contributed to the frontend interface design, dynamic UI elements, and Firebase database management.',
-    techStack: ['React Native', 'Game Design'],
-    link: '#', 
-    image: 'https://images.unsplash.com/photo-1481481365942-8858d0caddd7?auto=format&fit=crop&q=80&w=800'
+    title: 'MORT Study Buddy',
+    type: 'Web Application',
+    tags: ['React', 'Node.js', 'Education'],
+    description: 'An intelligent study companion platform that leverages spaced repetition and adaptive learning algorithms. Features real-time progress tracking, collaborative study groups, and AI-powered question generation for effective knowledge retention.',
+    link: '#',
+    caseStudyLink: '#',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=500&h=350'
   },
   {
     id: 3,
-    title: 'TuklaScope',
-    type: 'MOBILE APP',
-    date: 'PUBLISHED 2 MONTHS AGO',
-    description: 'A collaborative mobile educational platform for tracking student learning and progress. I partially contributed to the frontend and primarily focused on the Supabase backend architecture.',
-    techStack: ['React Native'],
+    title: 'Sentry',
+    type: 'Browser Extension',
+    tags: ['Browser Extension', 'Firebase', 'React'],
+    description: 'A comprehensive family safety browser extension providing real-time monitoring and secure device management. Architected with Firebase for instantaneous database syncing across multiple devices with end-to-end encryption protocols.',
+    techStack: ['React', 'Firebase', 'JavaScript'],
     link: '#',
-    image: 'https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=800'
+    caseStudyLink: '#',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200&h=600'
   },
   {
     id: 4,
-    title: 'MORT',
-    type: 'FULL STACK APP',
-    date: 'PUBLISHED 1 MONTH AGO',
-    description: 'A team-based comprehensive application where I served as a full-stack developer, managing both the interactive frontend interface and the Firebase database architecture.',
-    techStack: ['React Native', 'Full Stack'],
+    title: 'Tuklascope',
+    type: 'Mobile Application',
+    tags: ['React Native', 'iOS/Android', 'Real-time'],
+    description: 'A cross-platform mobile application enabling seamless real-time data visualization and analytics. Built with React Native for optimal performance across iOS and Android with native module integrations.',
     link: '#',
-    image: 'https://images.unsplash.com/photo-1506744626753-1fa44df14d28?auto=format&fit=crop&q=80&w=800'
+    caseStudyLink: '#',
+    image: 'https://images.unsplash.com/photo-1512941691920-25bda36dc643?auto=format&fit=crop&q=80&w=500&h=350'
   },
   {
     id: 5,
-    title: 'Aura / Remi',
-    type: 'AI CONCEPT APP',
-    date: 'PUBLISHED 1 WEEK AGO',
-    description: 'A solo individual project. I built this AI health companion app concept entirely from the ground up, developing the complete frontend tracking interface and engineering the backend database.',
-    techStack: ['React Native', 'AI Tracking', 'Full Stack'],
+    title: 'REMI',
+    type: 'Mobile Application',
+    tags: ['Flutter', 'Firebase', 'Machine Learning'],
+    description: 'An intelligent mobile companion app featuring personalized recommendations powered by machine learning. Optimized for performance with offline-first architecture and real-time cloud synchronization capabilities.',
     link: '#',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800'
+    caseStudyLink: '#',
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=500&h=350'
   }
 ];
 
 const Projects = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const nextSlide = () => {
-    setActiveIndex((prev) => (prev === projectsList.length - 1 ? 0 : prev + 1));
-  };
-
-  const prevSlide = () => {
-    setActiveIndex((prev) => (prev === 0 ? projectsList.length - 1 : prev - 1));
-  };
-
   const activeProject = projectsList[activeIndex];
 
-  // Touch Swipe Handlers
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
-  
-  const onTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    
-    if (isLeftSwipe) nextSlide();
-    if (isRightSwipe) prevSlide();
-  };
-
-  const getCardStyle = (index) => {
-    let offset = index - activeIndex;
-    const total = projectsList.length;
-
-    // Handle seamless wrap-around visually
-    if (offset < -Math.floor(total / 2)) offset += total;
-    if (offset > Math.floor(total / 2)) offset -= total;
-
-    let translateX = 0;
-    let rotateY = 0;
-    let scale = 1;
-    let opacity = 1;
-    let zIndex = 5;
-    let filter = 'brightness(1)';
-
-    if (offset === 0) {
-      // Active center
-      translateX = 0;
-      rotateY = 0;
-      scale = 1;
-      opacity = 1;
-      zIndex = 10;
-      filter = 'brightness(1)';
-    } else if (offset === -1) {
-      // Prev left
-      translateX = -110;
-      rotateY = 35;
-      scale = 0.8;
-      opacity = 0.7;
-      zIndex = 5;
-      filter = 'brightness(0.5)';
-    } else if (offset === 1) {
-      // Next right
-      translateX = 110;
-      rotateY = -35;
-      scale = 0.8;
-      opacity = 0.7;
-      zIndex = 5;
-      filter = 'brightness(0.5)';
+  const handleNavigate = (direction) => {
+    if (direction === 'next') {
+      setActiveIndex((prev) => (prev + 1) % projectsList.length);
     } else {
-      // Hidden cards (push to sides and shrink)
-      translateX = offset < 0 ? -220 : 220;
-      rotateY = offset < 0 ? 60 : -60;
-      scale = 0.5;
-      opacity = 0;
-      zIndex = 1;
-      filter = 'brightness(0.2)';
+      setActiveIndex((prev) => (prev - 1 + projectsList.length) % projectsList.length);
     }
-
-    return {
-      transform: `translateX(${translateX}%) scale(${scale}) perspective(1200px) rotateY(${rotateY}deg)`,
-      opacity,
-      zIndex,
-      filter
-    };
   };
+
+  const otherProjects = projectsList.filter((_, idx) => idx !== activeIndex);
 
   return (
     <section className="projects-section" id="projects">
+      {/* Header */}
       <div className="projects-header">
-        <h2>CREATIONS</h2>
-        <div className="header-line"></div>
+        <h2>
+          Selected <span className="highlight-peach">Works</span>
+        </h2>
       </div>
-      
-      <div className="carousel-wrapper">
-        <button className="carousel-arrow" onClick={prevSlide}>
-          <ChevronLeft size={24} />
-        </button>
 
-        <div 
-          className="carousel-container"
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          <div className="carousel-track">
-            {projectsList.map((project, index) => {
-              const isActive = index === activeIndex;
-              const cardClass = isActive ? 'carousel-item is-active' : 'carousel-item';
+      {/* Description */}
+      <p className="projects-description">
+        A collection of precision-engineered digital experiences, ranging from comprehensive web applications to specialized browser extensions. Built with focus on performance, security, and refined aesthetics.
+      </p>
 
-              return (
-                <div 
-                  className={cardClass} 
-                  key={project.id} 
-                  onClick={() => !isActive && setActiveIndex(index)}
-                  style={getCardStyle(index)}
-                >
-                  <div className="project-card-carousel corner-borders">
-                    {/* Corner Targeting Elements */}
-                    <div className="corner-top-left"></div>
-                    <div className="corner-top-right"></div>
-                    <div className="corner-bottom-left"></div>
-                    <div className="corner-bottom-right"></div>
+      {/* Card Stack Container */}
+      <div className="card-stack-container">
+        {/* Stacked Card Effect */}
+        <div className="card-stack-wrapper">
+          {/* Background layers for depth */}
+          <div className="stack-layer stack-layer-1"></div>
+          <div className="stack-layer stack-layer-2"></div>
 
-                    <div className="project-card-overlay">
-                      <span className="project-date">{project.date}</span>
-                    </div>
+          {/* Main Featured Card */}
+          <div className="featured-card-main" key={activeProject.id}>
+            <div className="featured-card-image">
+              <img src={activeProject.image} alt={activeProject.title} />
+              <div className="featured-card-overlay"></div>
+            </div>
 
-                    <div className="project-card-image-wrapper">
-                      <img src={project.image} alt={project.title} className="project-card-image" />
-                    </div>
+            {/* Project Info Overlay */}
+            <div className="featured-card-content">
+              <div className="card-tags">
+                {activeProject.tags.map((tag, i) => (
+                  <span key={i} className="tag-badge">{tag}</span>
+                ))}
+              </div>
 
-                    <div className="project-card-footer">
-                      <a href={project.link} className="btn-view-live" target="_blank" rel="noopener noreferrer">
-                        VIEW LIVE
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+              <h3 className="card-title">{activeProject.title}</h3>
+              <p className="card-type">{activeProject.type}</p>
+
+              <p className="card-description">
+                {activeProject.description}
+              </p>
+
+              <a href={activeProject.caseStudyLink} className="card-link">
+                View GitHub <GithubIcon />
+              </a>
+            </div>
           </div>
         </div>
 
-        <button className="carousel-arrow" onClick={nextSlide}>
-          <ChevronRight size={24} />
-        </button>
-      </div>
-
-      <div className="project-details">
-        <div className="project-details-content">
-          <h3 className="project-details-title">
-            <span className="title-text">{activeProject.title.toUpperCase()}</span>
-            <span className="title-dots">........................</span>
-          </h3>
-          <p className="project-type">{activeProject.type}</p>
-          <p className="project-details-description">{activeProject.description}</p>
-          
-          <div className="project-details-tech">
-            {activeProject.techStack.map((tech, i) => (
-              <span key={i} className="tech-badge">{tech}</span>
-            ))}
-          </div>
+        {/* Navigation Controls */}
+        <div className="card-navigation">
+          <button 
+            className="nav-button nav-prev" 
+            onClick={() => handleNavigate('prev')}
+            aria-label="Previous project"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <span className="project-counter">
+            {activeIndex + 1} / {projectsList.length}
+          </span>
+          <button 
+            className="nav-button nav-next" 
+            onClick={() => handleNavigate('next')}
+            aria-label="Next project"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
       </div>
 
-      <div className="carousel-pagination">
-        <div className="pagination-line"></div>
-        <div className="pagination-indicator">
-          {activeIndex + 1}/{projectsList.length}
+      {/* Other Endeavors Section */}
+      <div className="other-endeavors">
+        <h3 className="endeavors-title">Other Endeavors</h3>
+        
+        <div className="endeavors-grid">
+          {otherProjects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className="endeavor-card"
+              onClick={() => setActiveIndex(projectsList.indexOf(project))}
+            >
+              <div className="endeavor-image">
+                <img src={project.image} alt={project.title} />
+                <div className="endeavor-overlay"></div>
+              </div>
+
+              <div className="endeavor-content">
+                <p className="endeavor-type">{project.type}</p>
+                <h4 className="endeavor-title">{project.title}</h4>
+                <p className="endeavor-description">{project.description}</p>
+                <a href={project.link} className="endeavor-link">
+                  GitHub <GithubIcon />
+                </a>
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="pagination-line"></div>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Database, Wrench, Shield, Terminal, Target, Mail, Link, Phone } from 'lucide-react';
+import { Compass, X, Target, Zap, Rocket } from 'lucide-react';
 import Stack from './Stack';
 import '../styles/AboutMe.css';
 
@@ -9,117 +9,93 @@ import about2 from '../assets/about-2.jpg';
 import about3 from '../assets/about-3.jpg';
 
 const AboutMe = () => {
-  const ABOUT_MODULES = [
-    {
-      title: "Subject Profile / Identification",
-      icon: <Cpu className="category-icon text-[#ff003c]" />,
-      content: (
-        <>
-          <p className="data-row"><span className="label">SUBJECT_NAME:</span> JORDAN A. CABANDON</p>
-          <p className="data-row"><span className="label">STATUS:</span> 3RD YEAR UNIT (CIT-U) // COMP_ENG</p>
-          <div className="typing-animation-container">
-            <span className="status-label">STATUS_UPDATE: </span>
-            <span className="typing-text">System initialization... complete. Subject online.</span>
-          </div>
-        </>
-      )
-    },
-    {
-      title: "Operational Objectives",
-      icon: <Target className="category-icon text-[#ff003c]" />,
-      content: (
-        <ul className="objective-list">
-          <li>Architecting constructs built with <strong>great effort & good quality</strong>.</li>
-          <li>Unyielding optimism. Wired to <strong>face difficult challenges</strong> head-on.</li>
-          <li><span className="label">GOAL:</span> Secure fully <strong>FULLSTACK_DEVELOPER</strong> status.</li>
-        </ul>
-      )
-    },
-    {
-      title: "Core Traits & Environment",
-      icon: <Shield className="category-icon text-[#ff003c]" />,
-      content: (
-        <>
-          <p className="data-row"><span className="label">DESIGNATION:</span> A7-JAC_CABANDON_OS</p>
-          <p className="description-text">
-            I am an optimistic person that would greatly be happy to face more difficult challenges since I strive to become a good developer where I would be able to build anything.
-          </p>
-          <div className="icon-data-block">
-            <Database className="data-icon" size={16} /> <span>Pinecone: ACTIVE</span>
-          </div>
-          <div className="icon-data-block">
-            <Wrench className="data-icon" size={16} /> <span>Gemini AI // TensorFlow: ACTIVE</span>
-          </div>
-          <div className="icon-data-block">
-            <Cpu className="data-icon" size={16} /> <span>Git // VS Code // GitHub: ACTIVE</span>
-          </div>
-        </>
-      )
-    }
+  const coreProtocols = [
+    { icon: <Target size={28} />, label: 'Optimism' },
+    { icon: <Zap size={28} />, label: 'Precision' },
+    { icon: <Rocket size={28} />, label: 'Growth' }
   ];
 
   return (
     <section className="about-section" id="about">
-      <div className="os-console-panel">
-        <div className="os-window-header">
-          <div className="window-dots">
-            <span className="dot"></span>
-            <span className="dot"></span>
-            <span className="dot red-dot"></span>
+      <div className="about-container">
+        {/* LEFT COLUMN */}
+        <div className="about-left">
+          <div className="about-header">
+            <h1 className="about-title">
+              About <span className="highlight-peach">Me.</span>
+            </h1>
+            <p className="about-subtitle">
+              A glimpse into the journey, the mindset, and the aesthetics<br />
+              driving the code.
+            </p>
           </div>
-          <span className="window-title">sys_profile.exe</span>
-        </div>
 
-        <div className="os-window-body">
-          {/* LEFT PANEL: Stacked Interactive Cards */}
-          <div className="panel-console left-panel-console">
-            <h2 className="glitch-title-console" data-text="SYSTEM_PROFILE // SUBJECT">
-              SYSTEM_PROFILE // SUBJECT
-            </h2>
-            
-            <div className="about-cards-grid">
-              {ABOUT_MODULES.map((module, index) => (
-                <div key={index} className="about-card-console">
-                  <div className="category-header-about">
-                    {module.icon}
-                    <h3>{module.title}</h3>
+          {/* THE MINDSET SECTION */}
+          <div className="about-section-item" data-aos="fade-up">
+            <div className="section-header-about">
+              <Compass size={24} className="section-icon" />
+              <h2>The Mindset</h2>
+            </div>
+            <p className="section-description">
+              I believe that great software is built at the intersection of unwavering optimism and rigorous technical discipline. Every line of code is an opportunity to solve a problem more elegantly than the last time. My journey isn't just about frameworks; it's about continuously refining a craft.
+            </p>
+          </div>
+
+          {/* THE VISION SECTION */}
+          <div className="about-section-item" data-aos="fade-up">
+            <div className="section-header-about">
+              <X size={24} className="section-icon" />
+              <h2>The Vision</h2>
+            </div>
+            <p className="section-description">
+              Growing up, I was fascinated by the mechanics of the digital world. That curiosity evolved into a deep-seated passion for creating seamless, high-performance user experiences. I strive to build interfaces that don't just function flawlessly, but evoke a sense of futuristic sophistication.
+            </p>
+          </div>
+
+          {/* CORE PROTOCOLS */}
+          <div className="core-protocols" data-aos="fade-up">
+            <p className="core-label">CORE PROTOCOLS</p>
+            <div className="protocols-grid">
+              {coreProtocols.map((protocol, index) => (
+                <div key={index} className="protocol-item">
+                  <div className="protocol-icon">
+                    {protocol.icon}
                   </div>
-                  <div className="about-card-content">
-                    {module.content}
-                  </div>
+                  <p className="protocol-label">{protocol.label}</p>
                 </div>
               ))}
             </div>
-
-            <button className="cyber-button shiny-sweep">
-              INITIALIZE_LOG
-            </button>
           </div>
+        </div>
 
-          {/* RIGHT PANEL: Stack Component with Images */}
-          <div className="panel-console right-panel-console">
-            <h3 className="gallery-title">MEDIA_ARCHIVE</h3>
+        {/* RIGHT COLUMN - IMAGES & OBSIDIAN PULSE */}
+        <div className="about-right">
+          <div className="obsidian-label">
+            OBSIDIAN PULSE
+          </div>
+          
+          <div className="about-images">
             <Stack 
               cards={[
                 (
                   <img
                     src={about1}
                     alt="portfolio-1"
-                    className="card-image"
+                    className="about-card-image"
                   />
                 ),
                 (
                   <img
                     src={about2}
                     alt="portfolio-2"
-                    className="card-image"
+                    className="about-card-image"
                   />
                 ),
                 (
                   <img
                     src={about3}
                     alt="portfolio-3"
-                    className="card-image"
+                    className="about-card-image"
                   />
                 )
               ]}
@@ -127,15 +103,6 @@ const AboutMe = () => {
               sensitivity={150}
               sendToBackOnClick={true}
             />
-
-            <div className="comms-footer-console">
-              <p className="sub-label"><Terminal size={16} /> OPEN_COMM_CHANNELS</p>
-              <div className="social-links-console">
-                <a href="#" className="social-btn-console"><Mail size={20} /></a>
-                <a href="#" className="social-btn-console"><Link size={20} /></a>
-                <a href="#" className="social-btn-console"><Phone size={20} /></a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
