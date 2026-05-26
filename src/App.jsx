@@ -5,6 +5,7 @@ import AboutMe from './components/AboutMe';
 import TechStack from './components/TechStack';
 import Beams from './components/Beams';
 import Projects from './components/Projects';
+import Contact from './components/Contact';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './App.css'; 
@@ -30,6 +31,7 @@ function App() {
         <div data-aos="fade-right"><AboutMe /></div>
         <div data-aos="fade-left"><TechStack /></div>
         <div data-aos="fade-up"><Projects /></div>
+        <div data-aos="fade-up"><Contact /></div>
       </div>
     </div>
   );
