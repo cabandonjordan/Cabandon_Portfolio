@@ -1,6 +1,6 @@
 import React from 'react';
 import { Compass, X, Target, Zap, Rocket } from 'lucide-react';
-import Deadpool3D from './Deadpool3D';
+import Deadpool3D from './DeadPool3D';
 import '../styles/AboutMe.css';
 
 const AboutMe = () => {
