@@ -1,12 +1,7 @@
 import React from 'react';
 import { Compass, X, Target, Zap, Rocket } from 'lucide-react';
-import Stack from './Stack';
+import Deadpool3D from './Deadpool3D';
 import '../styles/AboutMe.css';
-
-// IMPORT IMAGES HERE so Vercel bundles them correctly
-import about1 from '../assets/about-1.jpg';
-import about2 from '../assets/about-2.jpg';
-import about3 from '../assets/about-3.jpg';
 
 const AboutMe = () => {
   const coreProtocols = [
@@ -18,7 +13,8 @@ const AboutMe = () => {
   return (
     <section className="about-section" id="about">
       <div className="about-container">
-        {/* LEFT COLUMN */}
+        
+        {/* LEFT COLUMN - TEXT */}
         <div className="about-left">
           <div className="about-header">
             <h1 className="about-title">
@@ -30,7 +26,6 @@ const AboutMe = () => {
             </p>
           </div>
 
-          {/* THE MINDSET SECTION */}
           <div className="about-section-item" data-aos="fade-up">
             <div className="section-header-about">
               <Compass size={24} className="section-icon" />
@@ -41,7 +36,6 @@ const AboutMe = () => {
             </p>
           </div>
 
-          {/* THE VISION SECTION */}
           <div className="about-section-item" data-aos="fade-up">
             <div className="section-header-about">
               <X size={24} className="section-icon" />
@@ -52,7 +46,6 @@ const AboutMe = () => {
             </p>
           </div>
 
-          {/* CORE PROTOCOLS */}
           <div className="core-protocols" data-aos="fade-up">
             <p className="core-label">CORE PROTOCOLS</p>
             <div className="protocols-grid">
@@ -68,43 +61,27 @@ const AboutMe = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN - IMAGES & OBSIDIAN PULSE */}
+        {/* RIGHT COLUMN - DEADPOOL HUD & 3D */}
         <div className="about-right">
-          <div className="obsidian-label">
-            OBSIDIAN PULSE
+          <div className="obsidian-label" style={{ textAlign: 'center', marginBottom: '1rem' }}>
+            MERC WITH A MOUTH
           </div>
           
-          <div className="about-images">
-            <Stack 
-              cards={[
-                (
-                  <img
-                    src={about1}
-                    alt="portfolio-1"
-                    className="about-card-image"
-                  />
-                ),
-                (
-                  <img
-                    src={about2}
-                    alt="portfolio-2"
-                    className="about-card-image"
-                  />
-                ),
-                (
-                  <img
-                    src={about3}
-                    alt="portfolio-3"
-                    className="about-card-image"
-                  />
-                )
-              ]}
-              randomRotation={true}
-              sensitivity={150}
-              sendToBackOnClick={true}
-            />
+          {/* HUD WRAPPER PLACED DIRECTLY IN HTML */}
+          <div className="deadpool-container">
+            {/* 2D HUD Elements */}
+            <div className="dp-hud-bracket top-left"></div>
+            <div className="dp-hud-bracket top-right"></div>
+            <div className="dp-hud-bracket bottom-left"></div>
+            <div className="dp-hud-bracket bottom-right"></div>
+            <div className="dp-scanline"></div>
+            <div className="dp-target-lock">BIOMETRIC_LOCKED</div>
+            
+            {/* 3D Canvas sits perfectly behind the HUD */}
+            <Deadpool3D />
           </div>
         </div>
+
       </div>
     </section>
   );

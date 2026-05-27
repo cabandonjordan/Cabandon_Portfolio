@@ -372,3 +372,72 @@
     min-height: 350px;
   }
 }
+/* =========================================
+   DEADPOOL HUD CONTAINER DESIGNS
+   ========================================= */
+.deadpool-container {
+  width: 100%;
+  max-width: 450px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background: radial-gradient(circle at center, rgba(255, 0, 60, 0.15) 0%, transparent 70%);
+}
+
+/* Targeting Brackets */
+.dp-hud-bracket {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #ff003c;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(255, 0, 60, 0.5), inset 0 0 10px rgba(255, 0, 60, 0.5);
+}
+
+.dp-hud-bracket.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.dp-hud-bracket.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.dp-hud-bracket.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.dp-hud-bracket.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* Tech Text Above */
+.dp-target-lock {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ff003c;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  z-index: 10;
+  background: #030000;
+  padding: 0 15px;
+  border-left: 2px solid #ff003c;
+  border-right: 2px solid #ff003c;
+}
+
+/* Animated Laser Scanline */
+.dp-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 0, 60, 0.8);
+  box-shadow: 0 0 20px 5px rgba(255, 0, 60, 0.8);
+  animation: dpScan 3s ease-in-out infinite;
+  z-index: 10;
+  pointer-events: none;
+}
+
+@keyframes dpScan {
+  0% { top: 5%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 95%; opacity: 0; }
+}

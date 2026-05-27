@@ -1,60 +1,107 @@
-import React from 'react';
-import profilePic from '../assets/CABANDON.png';
+import React, { useEffect, useState } from 'react';
+import RobotCore3D from './RobotCore3D';
+import profilePic from '../assets/about-4.jpg'; 
 import '../styles/SystemInit.css';
 
 const SystemInit = () => {
+  const [bootStage, setBootStage] = useState(0);
+
+  useEffect(() => {
+    const timers = [
+      setTimeout(() => setBootStage(1), 300),
+      setTimeout(() => setBootStage(2), 900),
+      setTimeout(() => setBootStage(3), 1500),
+    ];
+    return () => timers.forEach(clearTimeout);
+  }, []);
+
+  // Built-in 3D Tilt Effect for the card
+  const handleMouseMove = (e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 10}deg) rotateY(${x / 10}deg)`;
+  };
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+  };
+
   return (
-    <section className="hero-section" id="about">
-      <div className="hero-container">
-        <div className="hero-left">
-          <p className="greeting-text">Hi I am</p>
-          <h1 className="hero-name">Jordan A. Cabandon</h1>
-          <h2 className="hero-title">Aspiring Software Engineer</h2>
+    <section className="hero-section cyber-hud" id="home">
+      <RobotCore3D />
 
-          <div className="social-icons">
-            <a href="#" className="social-link" title="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-            <a href="#" className="social-link" title="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="#" className="social-link" title="GitHub">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
-            <a href="#" className="social-link" title="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="icon"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            </a>
+      <div className="hud-container">
+        
+        {/* --- LEFT COLUMN: TERMINAL TEXT --- */}
+        <div className="hud-left">
+          <div className={`hud-sys-info ${bootStage >= 1 ? 'power-on' : ''}`}>
+            <p>STATUS: ONLINE</p>
+            <p>BIOMETRIC: J.CABANDON</p>
+            <div className="hud-line"></div>
           </div>
 
-          <div className="hero-buttons">
-            <a href="#projects" className="btn btn-primary">Check Out My Projects</a>
-            <a href="#contact" className="btn btn-secondary">Let's Connect</a>
-          </div>
+          <div className={`hud-main ${bootStage >= 2 ? 'power-on' : ''}`}>
+            <div className="glitch-container">
+              <h1 className="hud-name" data-text="JORDAN A. CABANDON">JORDAN A. CABANDON</h1>
+            </div>
+            <h2 className="hud-role">&gt; COMPUTER ENGINEER</h2>
+            
+            <div className="hud-metrics">
+              <div className="metric-box">
+                <span className="metric-label">EXP_</span>
+                <span className="metric-value">5+ YRS</span>
+              </div>
+              <div className="metric-box">
+                <span className="metric-label">PRJ_</span>
+                <span className="metric-value">20+</span>
+              </div>
+              <div className="metric-box">
+                <span className="metric-label">CLI_</span>
+                <span className="metric-value">80+</span>
+              </div>
+            </div>
 
-          <div className="stats-container">
-            <div className="stat-item">
-              <div className="stat-number">5+</div>
-              <div className="stat-label">Experiences</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">20+</div>
-              <div className="stat-label">Project done</div>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">80+</div>
-              <div className="stat-label">Happy Clients</div>
+            <div className="hud-actions">
+              <a href="#projects" className="cyber-btn primary">
+                <span className="bracket">[</span> INITIATE PROJECTS <span className="bracket">]</span>
+              </a>
+              <a href="#contact" className="cyber-btn secondary">
+                CONNECT.EXE
+              </a>
             </div>
           </div>
         </div>
 
-        <div className="hero-right">
-          <div className="profile-image-placeholder">
-            <img src={profilePic} alt="Profile" className="profile-image" />
+        {/* --- RIGHT COLUMN: INLINE 3D CARD --- */}
+        <div className={`hud-right ${bootStage >= 3 ? 'power-on' : ''}`}>
+          
+          <div className="cyber-card-wrapper">
+            {/* The Red Background Glow */}
+            <div className="cyber-card-glow"></div>
+            
+            {/* The Tilting Card */}
+            <div 
+              className="cyber-card-inner"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className="cyber-card-overlay"></div>
+              
+              <div className="cyber-card-info">
+                <h3>Jordan A. Cabandon</h3>
+                <p>Computer Engineer</p>
+              </div>
+
+              <img src={profilePic} alt="Jordan" className="cyber-card-image" />
+            </div>
           </div>
+
         </div>
       </div>
     </section>
   );
-}
+};
 
 export default SystemInit;
