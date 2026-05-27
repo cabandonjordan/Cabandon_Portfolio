@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react';
+import { useRef, Suspense } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, useGLTF, ContactShadows } from '@react-three/drei';
 
@@ -20,7 +20,8 @@ const DeadpoolHead = () => {
       <primitive 
         ref={headRef} 
         object={scene} 
-        scale={4.5} 
+        /* --- ENLARGED: Increased scale from 2.5 to 3.2 --- */
+        scale={3.2} 
         position={[0, -0.2, 0]} 
       />
     </Float>
@@ -29,9 +30,8 @@ const DeadpoolHead = () => {
 
 useGLTF.preload('/deadpool.glb');
 
-export default function Deadpool3D() {
+export default function DeadPool3D() {
   return (
-    // Forces the canvas to stay strictly inside the lines of the HUD
     <Canvas 
       camera={{ position: [0, 0, 6] }} 
       style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 }}
@@ -41,7 +41,8 @@ export default function Deadpool3D() {
       <pointLight position={[0, -2, 3]} intensity={4} color="#ff003c" distance={10} />
       <pointLight position={[-5, 5, -5]} intensity={2} color="#ff003c" />
       
-      <ContactShadows position={[0, -2.2, 0]} opacity={0.8} scale={10} blur={2} far={4} color="#ff003c" />
+      {/* Adjusted the shadow position slightly to match the larger head */}
+      <ContactShadows position={[0, -2.0, 0]} opacity={0.8} scale={10} blur={2} far={4} color="#ff003c" />
 
       <Suspense fallback={null}>
         <DeadpoolHead />
