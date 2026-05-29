@@ -55,7 +55,7 @@ const SystemInit = () => {
               </div>
               <div className="metric-box">
                 <span className="metric-label">PRJ_</span>
-                <span className="metric-value">20+</span>
+                <span className="metric-value">6+</span>
               </div>
               <div className="metric-box">
                 <span className="metric-label">CLI_</span>
