@@ -50,8 +50,8 @@ const SystemInit = () => {
             
             <div className="hud-metrics">
               <div className="metric-box">
-                <span className="metric-label">EXP_</span>
-                <span className="metric-value">5+ YRS</span>
+                <span className="metric-label">YEAR_</span>
+                <span className="metric-value">3RD YEAR</span>
               </div>
               <div className="metric-box">
                 <span className="metric-label">PRJ_</span>
