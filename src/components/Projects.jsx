@@ -54,11 +54,12 @@ const projectsList = [
     image: 'https://images.unsplash.com/photo-1512941691920-25bda36dc643?auto=format&fit=crop&q=80&w=500&h=350'
   },
   {
-    id: 5,
+   id: 5,
     title: 'REMI',
-    type: 'Mobile Application',
-    tags: ['Flutter', 'Firebase', 'Machine Learning'],
-    description: 'An intelligent mobile companion app featuring personalized recommendations powered by machine learning. Optimized for performance with offline-first architecture and real-time cloud synchronization capabilities.',
+    type: 'Mobile Application (Solo Project)',
+    tags: ['Flutter', 'Gemini Pro Vision', 'Pinecone'],
+    description: 'An AI-powered health companion developed as a solo project to bridge the gap between daily emotional well-being and physical medical triage. Remi utilizes long-term memory via a vector database and computer vision to track recovery progress while providing emotionally intelligent conversation to reduce medical anxiety.',
+    techStack: ['Flutter', 'Gemini 2.5 Flash', 'Node.js', 'Pinecone'],
     link: '#',
     caseStudyLink: '#',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=500&h=350'
