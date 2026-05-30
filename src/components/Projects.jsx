@@ -32,13 +32,13 @@ const projectsList = [
     caseStudyLink: '#',
     image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=500&h=350'
   },
-  {
+ {
     id: 3,
     title: 'Sentry',
-    type: 'Browser Extension',
-    tags: ['Browser Extension', 'Firebase', 'React'],
-    description: 'A comprehensive family safety browser extension providing real-time monitoring and secure device management. Architected with Firebase for instantaneous database syncing across multiple devices with end-to-end encryption protocols.',
-    techStack: ['React', 'Firebase', 'JavaScript'],
+    type: 'Browser Extension (Team Project)',
+    tags: ['JavaScript', 'Gemini AI', 'Node.js'],
+    description: 'A comprehensive family safety browser extension developed as a team project to protect users online. It automatically detects and blurs inappropriate content, blocks phishing and scam links, and features a Family Manager that sends real-time notifications to parents when unsafe material is encountered. The core detection engine utilizes Google\'s Gemini AI for free OCR and advanced content analysis.',
+    techStack: ['JavaScript', 'Gemini AI', 'Node.js', 'Express'],
     link: '#',
     caseStudyLink: '#',
     image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200&h=600'
