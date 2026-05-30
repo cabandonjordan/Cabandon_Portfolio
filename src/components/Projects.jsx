@@ -46,9 +46,10 @@ const projectsList = [
   {
     id: 4,
     title: 'Tuklascope',
-    type: 'Mobile Application',
-    tags: ['React Native', 'iOS/Android', 'Real-time'],
-    description: 'A cross-platform mobile application enabling seamless real-time data visualization and analytics. Built with React Native for optimal performance across iOS and Android with native module integrations.',
+    type: 'Mobile Application (Team Project)',
+    tags: ['Flutter', 'Supabase', 'Neo4j AuraDB', 'Gemini 2.5 Flash'],
+    description: 'An AI-powered educational app designed to democratize learning among Filipino youth by transforming everyday environments into interactive classrooms. My contributions focused on database infrastructure management, organizing relational data via Supabase and supporting the backend storage layers like Qdrant and Neo4j AuraDB that integrated with the team\'s Conversational AI Tutor and Kaalaman Skill Tree. I also collaborated on frontend UI development within the Flutter environment.',
+    techStack: ['Flutter', 'Supabase', 'Neo4j AuraDB', 'Qdrant', 'Gemini 2.5 Flash'],
     link: '#',
     caseStudyLink: '#',
     image: 'https://images.unsplash.com/photo-1512941691920-25bda36dc643?auto=format&fit=crop&q=80&w=500&h=350'
